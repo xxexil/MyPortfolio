@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects - Renz Ivan Polancos</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">Portfolio</div>
+            <div class="nav-toggle" id="nav-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul class="nav-menu" id="nav-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="projects.html" class="active">Projects</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Projects Header -->
+    <section class="projects-header page-section">
+        <div class="container">
+            <h2>My Projects</h2>
+            <p class="section-subtitle">A collection of frontend projects and user interfaces that showcase my design and development skills</p>
+        </div>
+    </section>
+
+    <!-- Project Filters -->
+    <section class="project-filters">
+        <div class="container">
+            <div class="filter-tabs">
+                <button class="filter-btn active" data-filter="all">All Projects</button>
+                <button class="filter-btn" data-filter="react">React Projects</button>
+                <button class="filter-btn" data-filter="vue">Vue.js Projects</button>
+                <button class="filter-btn" data-filter="ui">UI Design</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Grid -->
+    <section class="projects-grid-section">
+        <div class="container">
+            <div class="projects-grid">
+                <!-- Featured Projects -->
+                <div class="project-card featured-card purple" data-category="vue task management">
+                    <div class="project-icon-large">
+                        <i class="fas fa-tasks"></i>
+                    </div>
+                    <h3>Task Management Interface</h3>
+                    <p>Intuitive project management interface with drag-and-drop functionality, kanban boards, and team collaboration features. Built with Vue.js and modern UI libraries.</p>
+                    <div class="project-tags">
+                        <span class="tag">Vue.js</span>
+                        <span class="tag">TypeScript</span>
+                        <span class="tag">Vuex</span>
+                        <span class="tag">Element Plus</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="#" class="project-link"><i class="fab fa-github"></i></a>
+                        <a href="#" class="project-link"><i class="fas fa-external-link-alt"></i></a>
+                    </div>
+                    <p class="project-date">Sep 2024</p>
+                </div>
+
+                <div class="project-card featured-card red" data-category="react real estate">
+                    <div class="project-icon-large">
+                        <i class="fas fa-home"></i>
+                    </div>
+                    <h3>Real Estate Landing Page</h3>
+                    <p>Stunning property showcase website with interactive galleries, search filters, and property viewing experience. Features mobile-first design and smooth animations.</p>
+                    <div class="project-tags">
+                        <span class="tag">React</span>
+                        <span class="tag">TypeScript</span>
+                        <span class="tag">Next.js</span>
+                        <span class="tag">Tailwind CSS</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="#" class="project-link"><i class="fab fa-github"></i></a>
+                    </div>
+                    <p class="project-date">Aug 2024</p>
+                </div>
+
+                <div class="project-card featured-card teal" data-category="react ui portfolio">
+                    <div class="project-icon-large">
+                        <i class="fas fa-globe"></i>
+                    </div>
+                    <h3>Creative Portfolio</h3>
+                    <p>Elegant, interactive portfolio showcasing frontend projects with smooth page transitions, creative layouts, and engaging user experience design.</p>
+                    <div class="project-tags">
+                        <span class="tag">React</span>
+                        <span class="tag">Tailwind CSS</span>
+                        <span class="tag">Framer Motion</span>
+                        <span class="tag">Three.js</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="#" class="project-link"><i class="fab fa-github"></i></a>
+                        <a href="#" class="project-link"><i class="fas fa-external-link-alt"></i></a>
+                    </div>
+                    <p class="project-date">Dec 2024</p>
+                </div>
+
+                <!-- Row 3 - More Featured Projects -->
+                <div class="project-card featured-card green featured-badge" data-category="react analytics dashboard ui">
+                    <div class="featured-label">Featured</div>
+                    <div class="project-icon-large">
+                        <i class="fas fa-chart-bar"></i>
+                    </div>
+                    <h3>Analytics Dashboard UI</h3>
+                    <p>Modern dashboard interface with interactive charts, real-time data visualization, and responsive design. Features dark/light mode toggle and smooth chart animations.</p>
+                    <div class="project-tags">
+                        <span class="tag">React</span>
+                        <span class="tag">TypeScript</span>
+                        <span class="tag">Chart.js</span>
+                        <span class="tag">Tailwind CSS</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="#" class="project-link"><i class="fab fa-github"></i></a>
+                        <a href="#" class="project-link"><i class="fas fa-external-link-alt"></i></a>
+                    </div>
+                    <p class="project-date">Feb 2024</p>
+                </div>
+
+                <div class="project-card featured-card blue-gradient" data-category="react next e-commerce">
+                    <div class="project-icon-large">
+                        <i class="fas fa-shopping-bag"></i>
+                    </div>
+                    <h3>E-commerce Frontend</h3>
+                    <p>Modern shopping interface with product filtering, wishlist functionality, and smooth checkout flow. Features responsive design and micro-interactions.</p>
+                    <div class="project-tags">
+                        <span class="tag">Next.js</span>
+                        <span class="tag">React</span>
+                        <span class="tag">Tailwind CSS</span>
+                        <span class="tag">Framer Motion</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="#" class="project-link"><i class="fab fa-github"></i></a>
+                        <a href="#" class="project-link"><i class="fas fa-external-link-alt"></i></a>
+                    </div>
+                    <p class="project-date">Nov 2024</p>
+                </div>
+
+                <div class="project-card featured-card orange" data-category="vue learning platform ui">
+                    <div class="project-icon-large">
+                        <i class="fas fa-book-open"></i>
+                    </div>
+                    <h3>Learning Platform UI</h3>
+                    <p>Clean, intuitive interface for online learning with course navigation, progress tracking, and interactive elements. Features accessible design and smooth transitions.</p>
+                    <div class="project-tags">
+                        <span class="tag">Vue.js</span>
+                        <span class="tag">Nuxt.js</span>
+                        <span class="tag">SCSS</span>
+                        <span class="tag">Vuetify</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="#" class="project-link"><i class="fab fa-github"></i></a>
+                    </div>
+                    <p class="project-date">Oct 2024</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Collaboration Section -->
+    <section class="collaboration">
+        <div class="container">
+            <h2>Interested in Collaboration?</h2>
+            <p>I'm always excited to work on new projects and explore innovative solutions. Let's create something amazing together!</p>
+            
+            <div class="collaboration-buttons">
+                <button class="btn btn-primary" onclick="window.location.href='contact.html'">Get In Touch</button>
+                <button class="btn btn-secondary" onclick="window.open('https://github.com', '_blank')">View GitHub</button>
+            </div>
+            
+            <div class="footer-info">
+                <p>&copy; 2024 Renz Ivan Polancos. All rights reserved.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-github"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                    <a href="#"><i class="fas fa-envelope"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>
