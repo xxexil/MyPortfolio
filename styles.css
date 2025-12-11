@@ -2634,7 +2634,7 @@ section {
 }
 
 .additional-certifications {
-    background-color: #161b22;
+    background-color: #161b22 !important;
 }
 
 .certifications-header {
@@ -2831,7 +2831,7 @@ section {
     }
     
     .additional-certifications {
-        background-color: #161b22;
+        background-color: #161b22 !important;
     }
     
     .cert-card {
