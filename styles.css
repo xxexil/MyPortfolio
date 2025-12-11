@@ -2130,9 +2130,9 @@ img {
     animation: slideIn 0.3s ease;
 }
 
-.modal-close {
+.close {
     position: absolute;
-    top: -10px;
+    top: 10px;
     right: 10px;
     color: #ffffff;
     font-size: 40px;
@@ -2150,9 +2150,10 @@ img {
     line-height: 1;
 }
 
-.modal-close:hover {
-    color: #4a90e2;
-    background: rgba(0, 0, 0, 0.8);
+.close:hover,
+.close:focus {
+    color: #64ffda;
+    text-decoration: none;
 }
 
 #modalImage {
@@ -2241,9 +2242,9 @@ img {
         padding: 15px;
     }
     
-    .modal-close {
-        top: -5px;
-        right: 5px;
+    .close {
+        font-size: 28px;
+        right: 15px;
         width: 40px;
         height: 40px;
         font-size: 30px;
@@ -2629,11 +2630,11 @@ section {
 .certifications-section,
 .additional-certifications {
     padding: 80px 0;
-    background-color: #f8f9fa;
+    background-color: #0d1117;
 }
 
 .additional-certifications {
-    background-color: #ffffff;
+    background-color: #161b22;
 }
 
 .certifications-header {
@@ -2678,7 +2679,8 @@ section {
 }
 
 .cert-card {
-    background: white;
+    background: #2d3748;
+    color: #ffffff;
     border-radius: 12px;
     padding: 1.5rem;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
@@ -2825,11 +2827,11 @@ section {
 @media (prefers-color-scheme: dark) {
     .certifications-section,
     .additional-certifications {
-        background-color: #1a1a1a;
+        background-color: #0d1117;
     }
     
     .additional-certifications {
-        background-color: #0d1117;
+        background-color: #161b22;
     }
     
     .cert-card {
@@ -2848,4 +2850,19 @@ section {
     .certifications-header h2 {
         color: #ffffff;
     }
+}
+/* Project Image Rounded Corners */
+.project-image {
+    border-radius: 15px;
+    overflow: hidden;
+    margin-bottom: 15px;
+}
+
+.project-image img {
+    border-radius: 15px;
+    transition: transform 0.3s ease;
+}
+
+.project-image:hover img {
+    transform: scale(1.02);
 }
