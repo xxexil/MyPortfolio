@@ -1,28 +1,52 @@
 // Mobile Navigation Toggle
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', function() {
     const navToggle = document.getElementById('nav-toggle');
     const navMenu = document.getElementById('nav-menu');
     
     if (navToggle && navMenu) {
-        navToggle.addEventListener('click', () => {
+        // Toggle mobile menu
+        navToggle.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            
             navToggle.classList.toggle('active');
             navMenu.classList.toggle('active');
+            
+            // Prevent body scroll when menu is open
+            if (navMenu.classList.contains('active')) {
+                document.body.style.overflow = 'hidden';
+            } else {
+                document.body.style.overflow = 'auto';
+            }
         });
         
         // Close mobile menu when clicking on a link
         const navLinks = document.querySelectorAll('.nav-menu a');
-        navLinks.forEach(link => {
-            link.addEventListener('click', () => {
+        navLinks.forEach(function(link) {
+            link.addEventListener('click', function() {
                 navToggle.classList.remove('active');
                 navMenu.classList.remove('active');
+                document.body.style.overflow = 'auto';
             });
         });
         
         // Close mobile menu when clicking outside
-        document.addEventListener('click', (e) => {
+        document.addEventListener('click', function(e) {
             if (!navToggle.contains(e.target) && !navMenu.contains(e.target)) {
+                if (navMenu.classList.contains('active')) {
+                    navToggle.classList.remove('active');
+                    navMenu.classList.remove('active');
+                    document.body.style.overflow = 'auto';
+                }
+            }
+        });
+        
+        // Close menu on escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && navMenu.classList.contains('active')) {
                 navToggle.classList.remove('active');
                 navMenu.classList.remove('active');
+                document.body.style.overflow = 'auto';
             }
         });
     }
@@ -258,38 +282,70 @@ document.addEventListener('DOMContentLoaded', () => {
     console.log('Modal elements found:', { modal, modalImage, modalTitle, modalDescription, modalClose });
     
     if (modal && modalImage && modalTitle && modalDescription && modalClose) {
-        // Add click event to all certificate images
-        const certImages = document.querySelectorAll('.cert-image img');
-        console.log('Found certificate images:', certImages.length);
+        // Add click event to all certificate cards and images
+        const certCards = document.querySelectorAll('.cert-card');
+        const certImages = document.querySelectorAll('.cert-image img, .cert-preview img');
         
+        // Handle new certificate card clicks
+        certCards.forEach(card => {
+            card.addEventListener('click', (e) => {
+                e.preventDefault();
+                
+                const img = card.querySelector('.cert-preview img');
+                const title = card.querySelector('.cert-info h3').textContent;
+                const level = card.querySelector('.cert-level').textContent;
+                
+                if (img) {
+                    // Set modal content
+                    modalImage.src = img.src;
+                    modalImage.alt = img.alt;
+                    modalTitle.textContent = title;
+                    modalDescription.innerHTML = `
+                        <strong>${level}</strong><br><br>
+                        Certificate of completion for ${title.toLowerCase()} course.
+                    `;
+                    
+                    // Show modal
+                    modal.style.display = 'block';
+                    document.body.style.overflow = 'hidden';
+                }
+            });
+        });
+        
+        // Handle old certificate image clicks (for backward compatibility)
         certImages.forEach(img => {
             img.addEventListener('click', (e) => {
                 e.preventDefault();
-                console.log('Certificate image clicked:', img.src);
                 
-                // Get certificate information from the parent card
+                // Check if it's in the new cert-card format
+                const certCard = img.closest('.cert-card');
+                if (certCard) {
+                    // Already handled by cert-card click
+                    return;
+                }
+                
+                // Handle old format
                 const eduCard = img.closest('.edu-card');
-                const title = eduCard.querySelector('h3').textContent;
-                const institution = eduCard.querySelector('.institution').textContent;
-                const year = eduCard.querySelector('.year').textContent;
-                const description = eduCard.querySelector('.description').textContent;
-                
-                console.log('Certificate info:', { title, institution, year, description });
-                
-                // Set modal content
-                modalImage.src = img.src;
-                modalImage.alt = img.alt;
-                modalTitle.textContent = title;
-                modalDescription.innerHTML = `
-                    <strong>${institution}</strong><br>
-                    <em>${year}</em><br><br>
-                    ${description}
-                `;
-                
-                // Show modal
-                modal.style.display = 'block';
-                document.body.style.overflow = 'hidden'; // Prevent background scrolling
-                console.log('Modal should now be visible');
+                if (eduCard) {
+                    const title = eduCard.querySelector('h3').textContent;
+                    const institution = eduCard.querySelector('.institution').textContent;
+                    const year = eduCard.querySelector('.year').textContent;
+                    const description = eduCard.querySelector('.description').textContent;
+                    
+                    // Set modal content
+                    modalImage.src = img.src;
+                    modalImage.alt = img.alt;
+                    modalTitle.textContent = title;
+                    modalDescription.innerHTML = `
+                        <strong>${institution}</strong><br>
+                        <em>${year}</em><br><br>
+                        ${description}
+                    `;
+                    
+                    // Show modal
+                    modal.style.display = 'block';
+                    document.body.style.overflow = 'hidden';
+                }
             });
         });
         
