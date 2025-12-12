@@ -1063,8 +1063,9 @@ table {
 
 .footer .footer-info {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
     align-items: center;
+    gap: 2rem;
 }
 
 .footer .footer-info p {
@@ -2865,4 +2866,43 @@ section {
 
 .project-image:hover img {
     transform: scale(1.02);
+}
+/* Portfolio Logo Link Styling */
+.nav-logo a {
+    color: inherit;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.nav-logo a:hover {
+    color: #64ffda;
+}
+/* Override center alignment for footer in collaboration section */
+.collaboration .footer-info {
+    text-align: left !important;
+    justify-content: flex-start !important;
+}
+
+.collaboration .footer-info p {
+    text-align: left !important;
+}
+/* General footer-info alignment - more specific rule */
+.footer-info {
+    display: flex !important;
+    justify-content: flex-start !important;
+    align-items: center !important;
+    gap: 2rem !important;
+    text-align: left !important;
+    margin-left: 0 !important;
+    padding-left: 0 !important;
+}
+
+/* Ensure the container doesn't add extra padding for footer */
+.collaboration .container {
+    padding-left: 20px !important;
+}
+
+.footer-info p {
+    margin: 0 !important;
+    padding: 0 !important;
 }
